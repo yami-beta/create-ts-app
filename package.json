@@ -8,23 +8,36 @@
   "repository": "ssh://git@github.com/yami-beta/create-ts-app",
   "author": "yami-beta <yami-beta@users.noreply.github.com>",
   "license": "MIT",
+  "jest": {
+    "preset": "ts-jest",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/"
+    ]
+  },
   "scripts": {
     "lint": "eslint --ext ts,js .",
     "format": "eslint --fix --ext ts,js .",
+    "test": "jest",
     "build:ts": "tsc",
     "watch:ts": "tsc --watch",
-    "build": "run-s build:*",
+    "clean": "rimraf lib",
+    "build": "run-s clean build:*",
     "watch": "run-p watch:*"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.17",
     "@types/node": "^12.7.1",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
+    "rimraf": "^2.7.0",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
   },
   "dependencies": {
