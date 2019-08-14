@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "outDir": "./lib",
+    "sourceMap": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true
+  }
+}
