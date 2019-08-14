@@ -1,0 +1,8 @@
+{
+  "name": "@yami-beta/create-ts-app",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "ssh://git@github.com/yami-beta/create-ts-app",
+  "author": "yami-beta <yami-beta@users.noreply.github.com>",
+  "license": "MIT"
+}
