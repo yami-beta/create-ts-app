@@ -19,8 +19,8 @@
     "lint": "eslint --ext ts,js .",
     "format": "eslint --fix --ext ts,js .",
     "test": "jest",
-    "build:ts": "tsc",
-    "watch:ts": "tsc --watch",
+    "build:ts": "tsc -p tsconfig.build.json",
+    "watch:ts": "tsc -p tsconfig.build.json  --watch",
     "clean": "rimraf lib",
     "build": "run-s clean build:*",
     "watch": "run-p watch:*"
