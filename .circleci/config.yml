@@ -1,0 +1,69 @@
+version: 2.1
+
+executors:
+  nodejs:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:10.16.3
+
+jobs:
+  install:
+    docker:
+      - image: circleci/node:10.16.3
+    working_directory: ~/app
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-v1-{{ .Branch }}-
+            - yarn-packages-v1-
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+            - ~/.cache/yarn
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - "."
+  lint:
+    docker:
+      - image: circleci/node:10.16.3
+    working_directory: ~/app
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Lint
+          command: yarn lint
+
+  test:
+    docker:
+      - image: circleci/node:10.16.3
+    working_directory: ~/app
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Test
+          command: |
+            yarn build
+            yarn test
+
+workflows:
+  version: 2
+  install_and_build:
+    jobs:
+      - install
+      - lint:
+          requires:
+            - install
+      - test:
+          requires:
+            - install
