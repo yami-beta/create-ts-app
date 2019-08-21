@@ -5,6 +5,10 @@
   "bin": {
     "create-ts-app": "bin/cli.js"
   },
+  "files": [
+    "lib",
+    "template"
+  ],
   "repository": "ssh://git@github.com/yami-beta/create-ts-app",
   "author": "yami-beta <yami-beta@users.noreply.github.com>",
   "license": "MIT",
@@ -19,11 +23,12 @@
     "lint": "eslint --ext ts,js .",
     "format": "eslint --fix --ext ts,js .",
     "test": "jest",
-    "build:ts": "tsc -p tsconfig.build.json",
+    "build:ts": "tsc -p tsconfig.build.json --sourceMap false",
     "watch:ts": "tsc -p tsconfig.build.json  --watch",
     "clean": "rimraf lib",
     "build": "run-s clean build:*",
-    "watch": "run-p watch:*"
+    "watch": "run-p watch:*",
+    "version": "run-s build"
   },
   "devDependencies": {
     "@types/jest": "^24.0.17",
