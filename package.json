@@ -6,6 +6,7 @@
     "create-ts-app": "bin/cli.js"
   },
   "files": [
+    "bin",
     "lib",
     "template"
   ],
