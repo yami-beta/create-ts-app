@@ -175,6 +175,7 @@ const config: any = {
   async completed() {
     this.gitInit();
     await this.npmInstall();
+    this.showProjectTips();
   }
 };
 
