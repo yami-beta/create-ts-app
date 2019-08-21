@@ -2,8 +2,6 @@
 
 My personal CLI to generate TypeScript application
 
-![create-ts-app demo](create-ts-app-demo.gif)
-
 ## Usage
 
 ```bash
