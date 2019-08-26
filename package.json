@@ -10,7 +10,10 @@
     "lib",
     "template"
   ],
-  "repository": "ssh://git@github.com/yami-beta/create-ts-app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yami-beta/create-ts-app.git"
+  },
   "author": "yami-beta <yami-beta@users.noreply.github.com>",
   "license": "MIT",
   "jest": {
