@@ -8,9 +8,7 @@ executors:
 
 jobs:
   install:
-    docker:
-      - image: circleci/node:10.16.3
-    working_directory: ~/app
+    executor: nodejs
     steps:
       - checkout
       - restore_cache:
@@ -33,9 +31,7 @@ jobs:
           paths:
             - "."
   lint:
-    docker:
-      - image: circleci/node:10.16.3
-    working_directory: ~/app
+    executor: nodejs
     steps:
       - attach_workspace:
           at: ~/app
@@ -44,9 +40,7 @@ jobs:
           command: yarn lint
 
   test:
-    docker:
-      - image: circleci/node:10.16.3
-    working_directory: ~/app
+    executor: nodejs
     steps:
       - attach_workspace:
           at: ~/app
