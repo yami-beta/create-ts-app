@@ -19,7 +19,10 @@ jobs:
             - yarn-packages-v1-
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile
+          command: |
+            yarn install --frozen-lockfile
+            cd template/frontend
+            yarn install --frozen-lockfile
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
@@ -36,8 +39,14 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          name: Lint
-          command: yarn lint
+          name: Lint (library)
+          command: |
+            yarn lint
+      - run:
+          name: Lint (template/frontend)
+          command: |
+            cd template/frontend
+            yarn lint
 
   test:
     executor: nodejs
