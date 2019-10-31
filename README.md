@@ -1,6 +1,6 @@
 # @yami-beta/create-ts-app
 
-![](https://github.com/yami-beta/create-ts-app/workflows/CI/badge.svg)
+![](https://github.com/yami-beta/create-ts-app/workflows/ci/badge.svg)
 
 My personal CLI to generate TypeScript application
 
