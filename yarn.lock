@@ -4216,10 +4216,10 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sao@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/sao/-/sao-1.6.1.tgz#74534b9b3df61735243e195635c14e229ea599d5"
-  integrity sha512-ZnFCrL1UmyuGL6koFW74oeWDRgm1w93Jv0AXzOo60f9aQbsQAON2xSbxAm8fxgTcxL7grxJnLn7Jy9bQ9Sb2yg==
+sao@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/sao/-/sao-1.7.0.tgz#19b61f95c62b3f71550c8d8911c88bb7d9ef49df"
+  integrity sha512-5ZJ6C1odSSqdFtgh/gNfwwmTgCTOnbXWQkyAyLv//9uSTsaGVyeVrNa0rS/o32pVSKlmyPg5C10KoGT3+rY1rw==
   dependencies:
     cac "^6.3.8"
     chalk "^2.4.1"

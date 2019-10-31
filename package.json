@@ -55,6 +55,6 @@
     "typescript": "^3.6.4"
   },
   "dependencies": {
-    "sao": "^1.6.1"
+    "sao": "^1.7.0"
   }
 }
