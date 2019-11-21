@@ -23,7 +23,8 @@ const config: any = {
             name: "Prettier",
             value: "prettier"
           }
-        ]
+        ],
+        default: ["eslint", "prettier"]
       },
       {
         name: "name",
