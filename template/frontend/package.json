@@ -30,7 +30,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "@types/react": "^16.9.19",
+    "@types/react": "^16.9.20",
     "@types/react-dom": "^16.9.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
