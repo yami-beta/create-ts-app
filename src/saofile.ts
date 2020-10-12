@@ -8,7 +8,7 @@ const config: any = {
         name: "appType",
         message: "Application type",
         type: "list",
-        choices: ["frontend"]
+        choices: ["frontend"],
       },
       {
         name: "features",
@@ -17,25 +17,25 @@ const config: any = {
         choices: [
           {
             name: "ESLint",
-            value: "eslint"
+            value: "eslint",
           },
           {
             name: "Prettier",
-            value: "prettier"
-          }
+            value: "prettier",
+          },
         ],
-        default: ["eslint", "prettier"]
+        default: ["eslint", "prettier"],
       },
       {
         name: "name",
         message: "Project name",
         default: this.outFolder,
-        filter: (val: string) => val.toLowerCase()
+        filter: (val: string) => val.toLowerCase(),
       },
       {
         name: "version",
         message: "Version",
-        default: "0.0.0"
+        default: "0.0.0",
       },
       {
         name: "author",
@@ -51,20 +51,20 @@ const config: any = {
           }
 
           return author;
-        }
+        },
       },
       {
         name: "license",
         message: "License",
         type: "list",
-        choices: ["UNLICENSED", "MIT"]
+        choices: ["UNLICENSED", "MIT"],
       },
       {
         name: "licenseOwner",
         message: "License owner",
         default: this.gitUser.name || this.gitUser.username,
-        when: (answers: any) => answers.license === "MIT"
-      }
+        when: (answers: any) => answers.license === "MIT",
+      },
     ];
   },
   actions() {
@@ -74,8 +74,8 @@ const config: any = {
         type: "add",
         files: "**",
         filters: {
-          LICENSE_MIT: answers.license === "MIT"
-        }
+          LICENSE_MIT: answers.license === "MIT",
+        },
       },
       answers.appType === "frontend" && {
         type: "add",
@@ -86,15 +86,15 @@ const config: any = {
           return {
             eslintExtends: features.includes("prettier")
               ? ["eslint:recommended", "plugin:prettier/recommended"]
-              : ["eslint:recommended"]
+              : ["eslint:recommended"],
           };
         },
         filters: {
           node_modules: false,
           ".eslintignore": answers.features.includes("eslint"),
           ".eslintrc.js": answers.features.includes("eslint"),
-          ".prettierrc.js": answers.features.includes("prettier")
-        }
+          ".prettierrc.js": answers.features.includes("prettier"),
+        },
       },
       {
         type: "modify",
@@ -108,7 +108,7 @@ const config: any = {
             license: answers.license || data.license,
             scripts: data.scripts,
             dependencies: {
-              ...data.dependencies
+              ...data.dependencies,
             },
             devDependencies: {
               ...data.devDependencies,
@@ -135,10 +135,10 @@ const config: any = {
                   : undefined,
               prettier: answers.features.includes("prettier")
                 ? data.devDependencies["prettier"]
-                : undefined
-            }
+                : undefined,
+            },
           };
-        }
+        },
       },
       answers.features.includes("eslint") && {
         type: "modify",
@@ -152,7 +152,7 @@ const config: any = {
             );
           }
           return modified;
-        }
+        },
       },
       answers.features.includes("eslint") && {
         type: "modify",
@@ -163,21 +163,21 @@ const config: any = {
             modified = modified.replace(`!.prettierrc.js\n`, "");
           }
           return modified;
-        }
+        },
       },
       {
         type: "move",
         patterns: {
-          "LICENSE_*": "LICENSE"
-        }
-      }
+          "LICENSE_*": "LICENSE",
+        },
+      },
     ].filter(Boolean);
   },
   async completed() {
     this.gitInit();
     await this.npmInstall();
     this.showProjectTips();
-  }
+  },
 };
 
 export = config;
