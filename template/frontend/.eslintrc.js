@@ -20,4 +20,5 @@ module.exports = {
     },
     sourceType: "module",
   },
+  ignorePatterns: ["node_modules/", "!.eslintrc.js", "!.prettierrc.js"],
 };

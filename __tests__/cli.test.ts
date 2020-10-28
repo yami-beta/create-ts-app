@@ -14,7 +14,6 @@ describe("create-ts-app", () => {
     ["src/index.html"],
     ["src/index.tsx"],
     [".gitignore"],
-    [".eslintignore"],
     [".eslintrc.js"],
     [".prettierrc.js"],
   ])("it should include %s", async (filename) => {
@@ -30,7 +29,7 @@ describe("create-ts-app", () => {
 
   describe("appType is frontend", () => {
     describe("ESLint is not selected", () => {
-      test.each<[string]>([[".eslintignore"], [".eslintrc.js"]])(
+      test.each<[string]>([[".eslintrc.js"]])(
         "it should not include %s",
         async (filename) => {
           const mockPromptAnswers = {
@@ -46,20 +45,19 @@ describe("create-ts-app", () => {
     });
 
     describe("ESLint and Prettier are not selected", () => {
-      test.each<[string]>([
-        [".eslintignore"],
-        [".eslintrc.js"],
-        [".prettierrc.js"],
-      ])("it should not include %s", async (filename) => {
-        const mockPromptAnswers = {
-          appType: "frontend",
-          features: [],
-          name: "test-app",
-          license: "MIT",
-        };
-        const stream = await sao.mock({ generator }, mockPromptAnswers);
-        expect(stream.fileList).not.toContain(filename);
-      });
+      test.each<[string]>([[".eslintrc.js"], [".prettierrc.js"]])(
+        "it should not include %s",
+        async (filename) => {
+          const mockPromptAnswers = {
+            appType: "frontend",
+            features: [],
+            name: "test-app",
+            license: "MIT",
+          };
+          const stream = await sao.mock({ generator }, mockPromptAnswers);
+          expect(stream.fileList).not.toContain(filename);
+        }
+      );
     });
   });
 });

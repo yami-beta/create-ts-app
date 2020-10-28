@@ -24,9 +24,6 @@ jobs:
         working-directory: ./template/frontend
       - name: Lint
         run: yarn lint
-      - name: Lint (template/frontend)
-        run: yarn lint
-        working-directory: ./template/frontend
       - name: Build
         run: yarn build
       - name: Test
