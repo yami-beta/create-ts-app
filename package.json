@@ -22,11 +22,7 @@
   "author": "yami-beta <yami-beta@users.noreply.github.com>",
   "license": "MIT",
   "jest": {
-    "preset": "ts-jest",
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/lib/"
-    ]
+    "preset": "ts-jest"
   },
   "scripts": {
     "lint": "eslint --ext ts,js .",
@@ -47,6 +43,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "^26.6.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
