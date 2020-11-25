@@ -5,13 +5,17 @@ module.exports = {
     commonjs: true,
     es6: true,
   },
-  plugins: ["@typescript-eslint", "react-hooks"],
+  plugins: ["@typescript-eslint", "import", "react-hooks"],
   extends: ["eslint:recommended", "plugin:prettier/recommended"],
   rules: {
     // interface や jsx をうまく扱えないので off にして noUnusedLocals を tsconfig で有効化
     "no-unused-vars": "off",
+    curly: ["error", "all"],
+    eqeqeq: ["error", "always"],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "error",
+    "import/no-duplicates": "error",
+    "import/order": ["error", { alphabetize: { order: "asc" } }],
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {

@@ -5,13 +5,17 @@ module.exports = {
     commonjs: true,
     es6: true,
   },
-  plugins: ["@typescript-eslint", "react-hooks"],
+  plugins: ["@typescript-eslint", "import", "react-hooks"],
   extends: ["eslint:recommended", "plugin:prettier/recommended"],
   rules: {
     "no-undef": "off",
     "no-unused-vars": "off",
+    curly: ["error", "all"],
+    eqeqeq: ["error", "always"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
+    "import/no-duplicates": "error",
+    "import/order": ["error", { alphabetize: { order: "asc" } }],
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {
