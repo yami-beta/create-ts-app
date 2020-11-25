@@ -10,6 +10,8 @@ module.exports = {
   rules: {
     // interface や jsx をうまく扱えないので off にして noUnusedLocals を tsconfig で有効化
     "no-unused-vars": "off",
+    curly: ["error", "all"],
+    eqeqeq: ["error", "always"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
     "import/no-duplicates": "error",
