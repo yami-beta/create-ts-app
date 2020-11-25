@@ -11,7 +11,7 @@ module.exports = {
     // interface や jsx をうまく扱えないので off にして noUnusedLocals を tsconfig で有効化
     "no-unused-vars": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "error",
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {
