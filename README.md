@@ -7,9 +7,10 @@ My personal CLI to generate TypeScript application
 ## Usage
 
 ```bash
-$ yarn create @yami-beta/ts-app path/to/dir
+$ cd path/to/dir
+$ yarn create @yami-beta/ts-app react spa
 # or
-$ npx @yami-beta/create-ts-app path/to/dir
+$ npx @yami-beta/create-ts-app react spa
 ```
 
 # LICENSE

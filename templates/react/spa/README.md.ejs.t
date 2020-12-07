@@ -1,0 +1,4 @@
+---
+to: README.md
+---
+# <%= name %>
