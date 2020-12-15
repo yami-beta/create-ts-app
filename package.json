@@ -22,7 +22,8 @@
   "author": "yami-beta <yami-beta@users.noreply.github.com>",
   "license": "MIT",
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "testEnvironment": "node"
   },
   "scripts": {
     "lint": "eslint --ext ts,js .",
@@ -53,6 +54,8 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "sao": "^1.7.1"
+    "enquirer": "^2.3.6",
+    "execa": "^5.0.0",
+    "hygen": "^6.0.4"
   }
 }

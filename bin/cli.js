@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
-const path = require("path");
-const sao = require("sao");
+const { run } = require("../lib");
 
-const generator = path.resolve(__dirname, "..", "lib");
-const outDir = path.resolve(process.argv[2] || ".");
-sao({ generator, outDir }).run().catch(sao.handleError);
+run(process.argv.slice(2))
+  .then(({ success }) => process.exit(success ? 0 : 1))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });

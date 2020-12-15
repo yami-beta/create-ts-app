@@ -1,8 +1,5 @@
 {
-  "name": "",
-  "version": "0.0.0",
   "main": "index.js",
-  "license": "UNLICENSED",
   "scripts": {
     "lint:eslint": "eslint --ext ts,tsx,js .",
     "lint": "run-p lint:*",
