@@ -4,6 +4,10 @@ import { Prompter } from "hygen/dist/types";
 import { run } from ".";
 
 describe("create-ts-app", () => {
+  const outputBasePath = process.env.TEST_OUTPUT_BASE_PATH
+    ? path.resolve(process.env.TEST_OUTPUT_BASE_PATH)
+    : path.resolve(__dirname, "..", "tmp");
+
   describe("react spa", () => {
     test("add and inject", async () => {
       const prompter: Prompter<{}, any> = {
@@ -18,7 +22,7 @@ describe("create-ts-app", () => {
         },
       };
       const result = await run(["react", "spa"], {
-        cwd: path.join(__dirname, "..", "tmp", "react", "spa"),
+        cwd: path.resolve(outputBasePath, "react", "spa"),
         createPrompter: () => prompter,
         logger: new Logger(() => {}),
       });
@@ -36,6 +40,58 @@ describe("create-ts-app", () => {
         "README.md",
         "tsconfig.json",
         "webpack.config.js",
+        "yarn.lock",
+      ].forEach((filepath) => {
+        expect(result.actions).toContainEqual(
+          expect.objectContaining({
+            type: "add",
+            subject: filepath,
+            status: "added",
+          })
+        );
+      });
+
+      // check injected
+      expect(result.actions).toContainEqual(
+        expect.objectContaining({
+          type: "inject",
+          subject: "package.json",
+          status: "inject",
+        })
+      );
+    });
+  });
+
+  describe("next app", () => {
+    test("add and inject", async () => {
+      const prompter: Prompter<{}, any> = {
+        prompt: () => {
+          return Promise.resolve({
+            name: "test-app",
+            version: "0.0.0",
+            author: "test-author",
+            license: "UNLICENSED",
+            overwrite: true,
+          });
+        },
+      };
+      const result = await run(["next", "app"], {
+        cwd: path.resolve(outputBasePath, "next", "app"),
+        createPrompter: () => prompter,
+        logger: new Logger(() => {}),
+      });
+
+      expect(result.success).toBe(true);
+
+      // check added
+      [
+        ".eslintrc.js",
+        ".gitignore",
+        ".prettierrc.js",
+        "package.json",
+        "src/pages/index.tsx",
+        "README.md",
+        "tsconfig.json",
         "yarn.lock",
       ].forEach((filepath) => {
         expect(result.actions).toContainEqual(
