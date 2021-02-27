@@ -6,7 +6,7 @@ module.exports = {
     es6: true,
   },
   plugins: ["@typescript-eslint", "import", "react-hooks"],
-  extends: ["eslint:recommended", "plugin:prettier/recommended"],
+  extends: ["eslint:recommended", "prettier"],
   rules: {
     "no-undef": "off",
     "no-unused-vars": "off",
@@ -16,6 +16,7 @@ module.exports = {
     "react-hooks/exhaustive-deps": "error",
     "import/no-duplicates": "error",
     "import/order": ["error", { alphabetize: { order: "asc" } }],
+    "import/no-default-export": "error",
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {

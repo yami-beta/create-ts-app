@@ -16,4 +16,3 @@ $ npx @yami-beta/create-ts-app react spa
 # LICENSE
 
 MIT
-
