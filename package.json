@@ -26,8 +26,12 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "lint": "eslint --ext ts,js .",
-    "format": "eslint --fix --ext ts,js .",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier --check .",
+    "lint": "run-s -l lint:eslint lint:prettier",
+    "format:eslint": "eslint --fix .",
+    "format:prettier": "prettier --write .",
+    "format": "run-s -l format:eslint format:prettier",
     "test": "jest",
     "build:ts": "tsc -p tsconfig.build.json --sourceMap false",
     "watch:ts": "tsc -p tsconfig.build.json  --watch",
@@ -44,7 +48,6 @@
     "eslint": "^7.16.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "^26.6.3",
     "npm-run-all": "^4.1.5",
