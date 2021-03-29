@@ -13,7 +13,7 @@
     "watch": "run-p watch:*"
   },
   "devDependencies": {
-    "@types/webpack": "^4.41.26",
+    "@types/webpack": "^4.41.27",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
     "copy-webpack-plugin": "^5.1.2",
