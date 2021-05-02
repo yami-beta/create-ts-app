@@ -1,6 +1,6 @@
 {
   "name": "@yami-beta/create-ts-app",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "main": "lib/index.js",
   "bin": {
     "create-ts-app": "bin/cli.js"
