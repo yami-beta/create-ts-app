@@ -1,6 +1,5 @@
 import path from "path";
 import { Logger } from "hygen";
-import { Prompter } from "hygen/dist/types";
 import { run } from ".";
 
 describe("create-ts-app", () => {
@@ -10,7 +9,7 @@ describe("create-ts-app", () => {
 
   describe("next app", () => {
     test("add and inject", async () => {
-      const prompter: Prompter<{}, any> = {
+      const prompter: any = {
         prompt: () => {
           return Promise.resolve({
             name: "test-app",
