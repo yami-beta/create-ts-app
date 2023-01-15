@@ -59,6 +59,6 @@
   "dependencies": {
     "enquirer": "^2.3.6",
     "execa": "^5.1.1",
-    "hygen": "^6.1.0"
+    "hygen": "^6.1.5"
   }
 }
