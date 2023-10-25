@@ -57,7 +57,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "enquirer": "^2.3.6",
+    "enquirer": "^2.4.1",
     "execa": "^5.1.1",
     "hygen": "^6.2.11"
   }
